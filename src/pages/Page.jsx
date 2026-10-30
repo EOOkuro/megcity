@@ -7,7 +7,7 @@ export default function Page() {
   const splat = useParams()["*"] || "";
   const slug = splat.split("/").filter(Boolean).pop();
   const page = PAGES[slug];
-  useEffect(() => { document.title = page ? `${page.title} – Tekkerz` : "Not found – Tekkerz"; }, [page]);
+  useEffect(() => { document.title = page ? `${page.title} – MegCity Foundation` : "Not found – MegCity Foundation"; }, [page]);
   if (!page) return <div className="container"><h1>Page not found</h1><Link to="/">Back home</Link></div>;
   return (
     <div className="container">

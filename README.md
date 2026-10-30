@@ -1,6 +1,6 @@
-# MegCity Soccer
+# MegCity Foundation
 
-Independent Vite + React site extracted from the Tekkerz project.
+Leagues, clubs and incubation. Vite + React. Deploys as its own Vercel project.
 
 ## Run locally
 ```bash
@@ -9,9 +9,13 @@ npm run dev
 npm run build
 ```
 
-Deploy this folder as its own Vercel project. Set the project's root directory to `megcity-soccer` if deploying from the combined repository.
+## Deploy
+Import this repo in Vercel (framework: Vite). No settings needed. Optional environment variables:
+- `VITE_WP_CONTENT_URL` — image host. Default `https://tekkerz.co/wp-content`.
+- `VITE_TRAINING_URL` — address of the MegCity Futbol Training site. Adds a link in the footer.
+- `VITE_SITE_BRAND` — overrides the site name.
 
-## Notes
-- This site has its own homepage, navigation, visual identity and page collection.
-- Original page content and WordPress-hosted media are retained where assigned to this brand.
-- Some original WordPress widgets/forms were placeholders in the source export and may need to be rebuilt before launch.
+## Where things live
+- `src/data/content.js` — all the text: mission, leagues, incubation places, clubs, partners, FedOs link.
+- `src/data/menu.js` — navigation.
+- `src/data/pages.json` — the older MegCity league pages exported from WordPress.

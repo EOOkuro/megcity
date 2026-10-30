@@ -1,38 +1,26 @@
-// Site-specific navigation
 export const MENU = [
   {
     "label": "Home",
-    "to": "/",
-    "children": []
+    "to": "/"
   },
   {
-    "label": "Membership",
-    "to": "/membership",
-    "children": []
-  },
-  {
-    "label": "MegCity FC",
-    "to": "/megcityfc",
-    "children": []
+    "label": "About",
+    "to": "/about"
   },
   {
     "label": "Leagues",
-    "to": "/soccer-leagues",
-    "children": []
+    "to": "/leagues"
   },
   {
-    "label": "Training",
-    "to": "/personal-training",
-    "children": []
+    "label": "Incubation",
+    "to": "/incubation"
   },
   {
-    "label": "Camps",
-    "to": "/camps",
-    "children": []
+    "label": "Partners",
+    "to": "/partners"
   },
   {
-    "label": "Locations",
-    "to": "/locations",
-    "children": []
+    "label": "FedOs",
+    "to": "/fedos"
   }
 ];

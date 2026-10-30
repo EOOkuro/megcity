@@ -27,6 +27,7 @@ export default function Block({ b }) {
       ? <iframe className="blk-raw" title="embed" srcDoc={b.html} />
       : <div dangerouslySetInnerHTML={{ __html: b.html }} />;
     // Slider Revolution, HubSpot, WPForms, Stripe, LA-Kit widgets: rebuild by hand (see README).
-    default: return <div className="blk-todo">TODO: rebuild “{b.widget}” widget {JSON.stringify(b.settings)}</div>;
+    // Widgets from the old WordPress site (sliders, forms) are skipped on the live site.
+    default: return import.meta.env.DEV ? <div className="blk-todo">TODO: rebuild “{b.widget}” widget</div> : null;
   }
 }

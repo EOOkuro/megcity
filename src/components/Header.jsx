@@ -1,15 +1,24 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { MENU } from "../data/menu.js";
-function Item({ item, close }) {
-  return <li><Link to={item.to} onClick={close}>{item.label}</Link></li>;
-}
+import { SITE } from "../data/site.js";
+
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const brand = import.meta.env.VITE_SITE_BRAND || "MegCity Soccer";
-  return <header className="site-header">
-    <Link to="/" className="wordmark" aria-label={brand+" home"}><span className="wordmark-mark">MC</span><span>{brand}<small>CHICAGO · COMMUNITY SPORTS</small></span></Link>
-    <button className="burger" aria-label="Menu" onClick={() => setOpen(!open)}>☰</button>
-    <nav className={open ? "nav is-open" : "nav"}><ul>{MENU.map(m => <Item key={m.to+m.label} item={m} close={() => setOpen(false)} />)}</ul></nav>
-  </header>;
+  return (
+    <header className="site-header">
+      <Link to="/" className="wordmark" aria-label={SITE.name + " home"} onClick={() => setOpen(false)}>
+        <span className="wordmark-mark">MC</span>
+        <span>{SITE.name}<small>{SITE.tagline}</small></span>
+      </Link>
+      <button className="burger" aria-label="Menu" onClick={() => setOpen(!open)}>☰</button>
+      <nav className={open ? "nav is-open" : "nav"}>
+        <ul>
+          {MENU.map((m) => (
+            <li key={m.to}><NavLink to={m.to} end={m.to === "/"} onClick={() => setOpen(false)}>{m.label}</NavLink></li>
+          ))}
+        </ul>
+      </nav>
+    </header>
+  );
 }

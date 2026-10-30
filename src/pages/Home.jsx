@@ -1,8 +1,54 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import "../styles/home.css";
+import { SITE } from "../data/site.js";
+import { MISSION, LEAGUES, INCUBATION, CLUBS, PARTNERS } from "../data/content.js";
+
 export default function Home() {
- useEffect(()=>{document.title="MegCity Soccer — South Side Soccer";document.body.classList.add("is-home");return()=>document.body.classList.remove("is-home")},[]);
- return <main className="brand-home mc-home"><section className="hero hero-megcity"><div className="hero-image mc-image"></div><div className="hero-shade"></div><div className="hero-content"><p className="eyebrow">Chicago's South Side · All ages · All levels</p><h1>SOCCER<br/><em>BELONGS</em><br/>TO EVERYONE.</h1><p className="hero-copy">Affordable, community-rooted soccer from first touch to lifelong competition.</p><div className="hero-actions"><Link className="hero-button" to="/membership">Find your place <span>↗</span></Link><Link className="text-link" to="/megcityfc">Meet MegCity FC</Link></div><div className="hero-index"><span>01 / COMMUNITY</span><span>SOUTH SIDE, CHICAGO</span></div></div></section>
- <section className="feature-row"><div><span className="feature-number">01</span><h2>FIND YOUR TEAM.</h2><p>Community clubs and leagues for young players, adults and families.</p><Link to="/megcityfc">Explore MegCity FC ↗</Link></div><div><span className="feature-number">02</span><h2>KEEP GETTING BETTER.</h2><p>Training, clinics and camps that meet players where they are.</p><Link to="/personal-training">Training options ↗</Link></div><div><span className="feature-number">03</span><h2>MAKE IT ACCESSIBLE.</h2><p>More ways to play, with the neighborhood at the center.</p><Link to="/membership">Membership & leagues ↗</Link></div></section></main>
+  useEffect(() => { document.title = SITE.name + " | Soccer for all, from first kick to last"; }, []);
+  return (
+    <div className="brand-home">
+      <section className="hero">
+        <div className="hero-image" /><div className="hero-shade" />
+        <div className="hero-content">
+          <p className="eyebrow">Chicago · Kisumu · Migori</p>
+          <h1>FIRST KICK<br /><em>TO LAST.</em></h1>
+          <p className="hero-copy">{MISSION}</p>
+          <div className="hero-actions">
+            <Link className="hero-button" to="/leagues">Our leagues <span>↗</span></Link>
+            <Link className="text-link" to="/about">About the foundation</Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="band">
+        <div className="band-head"><h2>OUR LEAGUES</h2><Link className="text-link" to="/leagues">All leagues</Link></div>
+        <div className="feature-row">
+          {LEAGUES.map((l, i) => (
+            <a key={l.name} href={l.url} target="_blank" rel="noreferrer">
+              <span className="feature-number">0{i + 1}</span>
+              <h3>{l.name.toUpperCase()}</h3>
+              <p>{l.blurb}</p>
+              <span className="go">Visit site ↗</span>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section className="band">
+        <div className="band-head"><h2>INCUBATION</h2><Link className="text-link" to="/incubation">How it works</Link></div>
+        <p className="lede" style={{ marginBottom: 24 }}>{INCUBATION.statement}</p>
+        <div className="chips">{INCUBATION.places.map((p) => <span className="chip" key={p}>{p}</span>)}</div>
+      </section>
+
+      <section className="band">
+        <div className="band-head"><h2>CLUBS</h2></div>
+        <div className="chips">{CLUBS.map((c) => <span className="chip" key={c}>{c}</span>)}</div>
+      </section>
+
+      <section className="band">
+        <div className="band-head"><h2>PARTNERS</h2><Link className="text-link" to="/partners">All partners</Link></div>
+        <div className="chips">{PARTNERS.map((p) => <span className="chip" key={p.name}>{p.name}</span>)}</div>
+      </section>
+    </div>
+  );
 }
