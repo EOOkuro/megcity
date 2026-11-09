@@ -8,8 +8,7 @@ export default function Header() {
   return (
     <header className="site-header">
       <Link to="/" className="wordmark" aria-label={SITE.name + " home"} onClick={() => setOpen(false)}>
-        <span className="wordmark-mark">MC</span>
-        <span>{SITE.name}<small>{SITE.tagline}</small></span>
+        <img src="/logo.png" alt="MegCity" />
       </Link>
       <button className="burger" aria-label="Menu" onClick={() => setOpen(!open)}>☰</button>
       <nav className={open ? "nav is-open" : "nav"}>

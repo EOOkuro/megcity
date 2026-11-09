@@ -6,7 +6,7 @@ export default function Leagues() {
   useEffect(() => { document.title = "Leagues – MegCity Foundation"; }, []);
   return (
     <div className="container prose">
-      <p className="eyebrow-dark">LEAGUES</p>
+      
       <h1 className="page-title">OUR LEAGUES</h1>
       <p>Each league has its own site for schedules, teams and registration.</p>
       <div className="cards">

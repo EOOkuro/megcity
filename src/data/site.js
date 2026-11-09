@@ -1,7 +1,10 @@
 export const SITE = {
   name: import.meta.env.VITE_SITE_BRAND || "MegCity Foundation",
-  tagline: "LEAGUES · CLUBS · INCUBATION",
   email: "hello@tekkerz.co",
-  // Optional link to the sister site. Set VITE_TRAINING_URL in Vercel to show it in the footer.
+  social: [
+    { label: "Instagram", url: "https://www.instagram.com/megcityfutboltraining/" },
+    { label: "TikTok", url: "https://www.tiktok.com/@megcityfc" },
+    { label: "Meg.city", url: "https://meg.city" },
+  ],
   sister: { label: "MegCity Futbol Training", url: import.meta.env.VITE_TRAINING_URL || "" },
 };

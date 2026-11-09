@@ -5,7 +5,7 @@ export default function Partners() {
   useEffect(() => { document.title = "Partners – MegCity Foundation"; }, []);
   return (
     <div className="container prose">
-      <p className="eyebrow-dark">PARTNERSHIPS</p>
+      
       <h1 className="page-title">PARTNERS</h1>
       <div className="cards">
         {PARTNERS.map((p) => (

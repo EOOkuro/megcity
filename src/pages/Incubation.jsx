@@ -5,7 +5,7 @@ export default function Incubation() {
   useEffect(() => { document.title = "Incubation – MegCity Foundation"; }, []);
   return (
     <div className="container prose">
-      <p className="eyebrow-dark">INCUBATION</p>
+      
       <h1 className="page-title">INCUBATION MODEL</h1>
       <p>{INCUBATION.statement}</p>
       <h2>WHERE WE WORK</h2>

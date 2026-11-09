@@ -1,53 +1,53 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { SITE } from "../data/site.js";
-import { MISSION, LEAGUES, INCUBATION, CLUBS, PARTNERS } from "../data/content.js";
+import { MISSION, ABOUT, PILLARS, LEAGUES, INCUBATION, CLUBS, PARTNERS } from "../data/content.js";
 
 export default function Home() {
-  useEffect(() => { document.title = SITE.name + " | Soccer for all, from first kick to last"; }, []);
+  useEffect(() => { document.title = "MegCity Foundation | Soccer for all, from first kick to last"; }, []);
   return (
-    <div className="brand-home">
+    <div>
       <section className="hero">
-        <div className="hero-image" /><div className="hero-shade" />
-        <div className="hero-content">
-          <p className="eyebrow">Chicago · Kisumu · Migori</p>
-          <h1>FIRST KICK<br /><em>TO LAST.</em></h1>
+        <div>
+          <h1>Soccer for all, from first kick to last.</h1>
           <p className="hero-copy">{MISSION}</p>
           <div className="hero-actions">
-            <Link className="hero-button" to="/leagues">Our leagues <span>↗</span></Link>
-            <Link className="text-link" to="/about">About the foundation</Link>
+            <Link className="hero-button" to="/leagues">See our leagues</Link>
+            <Link className="text-link" to="/about">Read our story</Link>
           </div>
+        </div>
+        <div className="hero-image" role="img" aria-label="Players on a Chicago field" />
+      </section>
+
+      <section className="mission">
+        <h2>{ABOUT}</h2>
+        <div className="pillars">
+          {PILLARS.map((p) => <div key={p.name}><h3>{p.name}</h3><p>{p.text}</p></div>)}
         </div>
       </section>
 
       <section className="band">
-        <div className="band-head"><h2>OUR LEAGUES</h2><Link className="text-link" to="/leagues">All leagues</Link></div>
+        <div className="band-head"><h2>Our leagues</h2><Link className="text-link" to="/leagues">All leagues</Link></div>
         <div className="feature-row">
-          {LEAGUES.map((l, i) => (
+          {LEAGUES.map((l) => (
             <a key={l.name} href={l.url} target="_blank" rel="noreferrer">
-              <span className="feature-number">0{i + 1}</span>
-              <h3>{l.name.toUpperCase()}</h3>
-              <p>{l.blurb}</p>
-              <span className="go">Visit site ↗</span>
+              <h3>{l.name}</h3><p>{l.blurb}</p><span className="go">Visit site</span>
             </a>
           ))}
         </div>
       </section>
 
-      <section className="band">
-        <div className="band-head"><h2>INCUBATION</h2><Link className="text-link" to="/incubation">How it works</Link></div>
-        <p className="lede" style={{ marginBottom: 24 }}>{INCUBATION.statement}</p>
+      <section className="band alt">
+        <div className="band-head"><h2>Incubation</h2><Link className="text-link" to="/incubation">How it works</Link></div>
+        <p className="lede">{INCUBATION.statement}</p>
         <div className="chips">{INCUBATION.places.map((p) => <span className="chip" key={p}>{p}</span>)}</div>
       </section>
 
       <section className="band">
-        <div className="band-head"><h2>CLUBS</h2></div>
-        <div className="chips">{CLUBS.map((c) => <span className="chip" key={c}>{c}</span>)}</div>
-      </section>
-
-      <section className="band">
-        <div className="band-head"><h2>PARTNERS</h2><Link className="text-link" to="/partners">All partners</Link></div>
-        <div className="chips">{PARTNERS.map((p) => <span className="chip" key={p.name}>{p.name}</span>)}</div>
+        <h2>Clubs and partners</h2>
+        <div className="chips">
+          {CLUBS.map((c) => <span className="chip" key={c}>{c}</span>)}
+          {PARTNERS.map((p) => <span className="chip" key={p.name}>{p.name}</span>)}
+        </div>
       </section>
     </div>
   );
